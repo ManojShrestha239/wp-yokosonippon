@@ -43,3 +43,4 @@ wp-content/backup*/
 *.sql.gz
 *.bak
 *.backup
+yokosonippon/mysql_data/
