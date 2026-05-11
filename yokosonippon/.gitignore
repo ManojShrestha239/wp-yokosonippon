@@ -1,0 +1,45 @@
+.env
+
+# Environment and secrets
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.kdbx
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs and temp
+*.log
+logs/
+tmp/
+temp/
+
+# Dependencies and build artifacts
+node_modules/
+vendor/
+
+# Docker local overrides
+docker-compose.override.yml
+.docker/
+
+# WordPress generated/user content and cache
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backup*/
+
+# Database dumps/backups
+*.sql
+*.sql.gz
+*.bak
+*.backup

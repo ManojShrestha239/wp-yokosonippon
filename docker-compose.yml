@@ -1,0 +1,98 @@
+services:
+  app:
+    image: wordpress:6.9.4-php8.4-apache
+    container_name: yokosonippon_wordpress
+
+    # WordPress needs MySQL before it can install/run.
+    depends_on:
+      - mysql
+
+    # # Exposes WordPress to your browser.
+    # # Example: WORDPRESS_PORT=8080 means http://localhost:8080
+    # ports:
+    #   - "${WORDPRESS_PORT}:80"
+
+    # Do NOT expose WordPress directly to host.
+    # Nginx will access it internally.
+    expose:
+      - "80"
+
+    # These values tell WordPress how to connect to MySQL.
+    # Think of this like Laravel's DB_HOST, DB_DATABASE, DB_USERNAME, DB_PASSWORD.
+    environment:
+      WORDPRESS_DB_HOST: mysql:3306
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
+      WORDPRESS_DB_USER: ${MYSQL_USER}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
+
+      # Helpful for local development debugging.
+      WORDPRESS_DEBUG: ${WORDPRESS_DEBUG}
+
+    # Bind mount: keeps WordPress files visible/editable on your machine.
+    # This is useful while learning themes/plugins.
+    volumes:
+      - ./yokosonippon:/var/www/html
+
+    networks:
+      - yokosonippon_network
+
+  nginx:
+    image: nginx:stable-alpine
+    container_name: yokosonippon_nginx
+    restart: unless-stopped
+    ports:
+      - "${WORDPRESS_PORT}:80"
+    volumes:
+      - ./yokosonippon:/var/www/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
+    networks:
+      - yokosonippon_network
+
+  mysql:
+    image: mysql:8.0
+    container_name: yokosonippon_mysql
+
+    # MySQL configuration.
+    # These variables initialize the database the first time the DB volume is created.
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+
+    # Named volume: keeps database data even if the container is removed.
+    volumes:
+      - ./yokosonippon/mysql_data:/var/lib/mysql
+
+    networks:
+      - yokosonippon_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    platform: linux/amd64
+    container_name: yokosonippon_phpmyadmin
+
+    depends_on:
+      - mysql
+
+    # Exposes phpMyAdmin to your browser.
+    # Example: PHPMYADMIN_PORT=8081 means http://localhost:8081
+    ports:
+      - "${PHPMYADMIN_PORT}:80"
+
+    # Tells phpMyAdmin which MySQL service to connect to.
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+
+    networks:
+      - yokosonippon_network
+
+volumes:
+  mysql_data:
+
+networks:
+  yokosonippon_network:
+    driver: bridge
