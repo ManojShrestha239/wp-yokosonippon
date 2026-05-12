@@ -1,0 +1,13 @@
+/*
+Theme Name: Yokoso Nippon Custom
+Theme URI: #
+Author: Principal Architect
+Description: High-performance, modular custom theme for Yokoso Nippon single-page flow.
+Version: 1.0.0
+Text Domain: yokosonippon
+*/
+
+/* 
+Note: Since we are using Tailwind, we won't write much CSS here. 
+In a production CI/CD pipeline, your compiled Tailwind CSS would output here or to an assets folder.
+*/

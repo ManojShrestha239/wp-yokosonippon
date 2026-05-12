@@ -1,9 +1,4 @@
-<?php
-
-/**
- * Template part for displaying the hero section
- */
-?>
+<?php if (! defined('ABSPATH')) exit; ?>
 <section class="relative min-h-[819px] flex items-center overflow-hidden">
     <div class="absolute inset-0 z-0">
         <img

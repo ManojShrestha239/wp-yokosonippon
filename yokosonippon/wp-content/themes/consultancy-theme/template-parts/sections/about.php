@@ -1,9 +1,4 @@
-<?php
-
-/**
- * Template part for displaying the about section
- */
-?>
+<?php if (! defined('ABSPATH')) exit; ?>
 <section
     class="py-stack-lg max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop"
     id="about">

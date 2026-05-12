@@ -1,6 +1,4 @@
-<?php
-
-?>
+<?php if (! defined('ABSPATH')) exit; ?>
 <section
     class="py-stack-lg bg-primary-container text-on-primary"
     id="contact">

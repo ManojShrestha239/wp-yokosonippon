@@ -1,5 +1,4 @@
-<?php
-?>
+<?php if (! defined('ABSPATH')) exit; ?>
 <section class="py-stack-lg bg-surface-container-low" id="services">
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
         <div class="text-center mb-stack-lg">

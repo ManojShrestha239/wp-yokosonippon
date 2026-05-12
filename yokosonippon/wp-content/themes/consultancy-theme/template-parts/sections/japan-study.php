@@ -1,6 +1,4 @@
-<?php
-
-?>
+<?php if (! defined('ABSPATH')) exit; ?>
 <section class="py-stack-lg bg-surface" id="japan-study">
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
         <div class="grid lg:grid-cols-2 gap-16">
