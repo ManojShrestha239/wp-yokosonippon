@@ -23,12 +23,15 @@ add_action('after_setup_theme', 'yokosonippon_setup');
 
 function yokosonippon_scripts()
 {
-    // 1. Google Fonts
-    wp_enqueue_style('google-fonts-roboto', 'https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap', array(), null);
-    wp_enqueue_style('google-material-symbols', 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap', array(), null);
+    // Enqueue external fonts
+    wp_enqueue_style('material-symbols', 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap', array(), null);
+    wp_enqueue_style('roboto-flex', 'https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap', array(), null);
 
-    // 2. Main Stylesheet
-    wp_enqueue_style('yokosonippon-style', get_stylesheet_uri(), array(), wp_get_theme()->get('Version'));
+    // Enqueue main stylesheet
+    wp_enqueue_style('yokoso-style', get_stylesheet_uri(), array(), '1.0');
+
+    // Enqueue custom JS
+    wp_enqueue_script('yokoso-main-js', get_template_directory_uri() . '/assets/js/main.js', array(), '1.0', true);
 
     // 3. Tailwind via CDN (Development Only - To be replaced with compiled CSS in Milestone 4)
     wp_enqueue_script('tailwind-cdn', 'https://cdn.tailwindcss.com?plugins=forms,container-queries', array(), null, false);

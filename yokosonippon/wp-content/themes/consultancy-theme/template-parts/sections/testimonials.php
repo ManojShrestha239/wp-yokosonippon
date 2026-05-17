@@ -1,12 +1,13 @@
 <?php if (! defined('ABSPATH')) exit; ?>
+<!-- Testimonials -->
 <section class="py-stack-lg bg-surface-container-highest/30">
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
         <h2
-            class="font-headline-lg text-headline-lg text-primary text-center mb-stack-lg">
+            class="font-headline-lg text-headline-lg text-primary text-center mb-stack-lg js-reveal">
             Student Success Stories
         </h2>
         <div class="grid md:grid-cols-3 gap-gutter">
-            <div class="surface-card p-stack-md">
+            <div class="surface-card p-stack-md js-reveal js-reveal--delay-1">
                 <div class="flex gap-2 text-tertiary mb-4">
                     <span
                         class="material-symbols-outlined"
@@ -39,7 +40,8 @@
                     </div>
                 </div>
             </div>
-            <div class="surface-card p-stack-md">
+
+            <div class="surface-card p-stack-md js-reveal js-reveal--delay-2">
                 <div class="flex gap-2 text-tertiary mb-4">
                     <span
                         class="material-symbols-outlined"
@@ -71,7 +73,8 @@
                     </div>
                 </div>
             </div>
-            <div class="surface-card p-stack-md">
+
+            <div class="surface-card p-stack-md js-reveal js-reveal--delay-3">
                 <div class="flex gap-2 text-tertiary mb-4">
                     <span
                         class="material-symbols-outlined"

@@ -1,10 +1,11 @@
 <?php if (! defined('ABSPATH')) exit; ?>
+<!-- Inquiry & Contact Section -->
 <section
     class="py-stack-lg bg-primary-container text-on-primary"
     id="contact">
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
         <div class="grid lg:grid-cols-2 gap-16">
-            <div>
+            <div class="js-reveal">
                 <h2 class="font-headline-lg text-headline-lg mb-stack-md">
                     Send us an Inquiry
                 </h2>
@@ -42,12 +43,12 @@
                             rows="4"></textarea>
                     </div>
                     <button
-                        class="bg-secondary text-on-secondary px-10 py-4 rounded-full font-label-lg w-full md:w-auto shadow-lg hover:bg-opacity-90 transition-all">
+                        class="btn bg-secondary text-on-secondary px-10 py-4 rounded-full font-label-lg w-full md:w-auto shadow-lg">
                         Submit Inquiry
                     </button>
                 </form>
             </div>
-            <div class="space-y-8">
+            <div class="space-y-8 js-reveal js-reveal--delay-2">
                 <h2 class="font-headline-lg text-headline-lg mb-stack-md">
                     Contact Details
                 </h2>
@@ -77,16 +78,6 @@
                     <div class="flex items-center gap-4">
                         <div
                             class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
-                            <span class="material-symbols-outlined">chat</span>
-                        </div>
-                        <div>
-                            <h4 class="font-label-lg">WhatsApp</h4>
-                            <p class="font-body-md text-white/80">+977 98XXXXXXX</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <div
-                            class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
                             <span class="material-symbols-outlined">mail</span>
                         </div>
                         <div>
@@ -95,17 +86,6 @@
                                 info@yokosonippon.com
                             </p>
                         </div>
-                    </div>
-                </div>
-                <div
-                    class="h-64 w-full bg-white/5 rounded-3xl overflow-hidden"
-                    data-location="Bharatpur, Nepal"
-                    style="">
-                    <!-- Placeholder for Map -->
-                    <div
-                        class="w-full h-full flex items-center justify-center border border-white/20">
-                        <span class="material-symbols-outlined text-4xl mr-2">map</span>
-                        <span>Interactive Map View</span>
                     </div>
                 </div>
             </div>

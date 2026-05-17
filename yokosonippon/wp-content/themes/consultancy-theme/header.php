@@ -12,28 +12,6 @@ if (! defined('ABSPATH')) exit;
     <meta charset="<?php bloginfo('charset'); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <style>
-        body {
-            font-family: "Roboto Flex", sans-serif;
-            background-color: #faf9fd;
-        }
-
-        .material-symbols-outlined {
-            font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-        }
-
-        .surface-card {
-            background-color: #ffffff;
-            border-radius: 24px;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .surface-card:hover {
-            box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.08);
-        }
-    </style>
-
     <?php wp_head(); /* Crucial: WP hooks into this to inject scripts/styles */ ?>
 </head>
 

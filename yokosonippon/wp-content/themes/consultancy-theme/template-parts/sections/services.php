@@ -1,7 +1,8 @@
 <?php if (! defined('ABSPATH')) exit; ?>
+<!-- Services Section -->
 <section class="py-stack-lg bg-surface-container-low" id="services">
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
-        <div class="text-center mb-stack-lg">
+        <div class="text-center mb-stack-lg js-reveal">
             <h2 class="font-headline-lg text-headline-lg text-primary">
                 Our Core Services
             </h2>
@@ -11,9 +12,8 @@
             </p>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
-            <!-- Service Card 1 -->
             <div
-                class="surface-card p-stack-md flex flex-col items-start gap-4">
+                class="surface-card p-stack-md flex flex-col items-start gap-4 js-reveal js-reveal--delay-1">
                 <div
                     class="w-12 h-12 bg-primary-container text-on-primary rounded-full flex items-center justify-center">
                     <span class="material-symbols-outlined" data-icon="language">language</span>
@@ -23,12 +23,12 @@
                 </h3>
                 <p class="font-body-md text-on-surface-variant">
                     Intensive JLPT and NAT-TEST preparation courses from N5 to N2
-                    levels with certified instructors.
+                    levels.
                 </p>
             </div>
-            <!-- Service Card 2 -->
+
             <div
-                class="surface-card p-stack-md flex flex-col items-start gap-4">
+                class="surface-card p-stack-md flex flex-col items-start gap-4 js-reveal js-reveal--delay-2">
                 <div
                     class="w-12 h-12 bg-secondary-container text-on-secondary rounded-full flex items-center justify-center">
                     <span
@@ -39,13 +39,12 @@
                     Interview Prep
                 </h3>
                 <p class="font-body-md text-on-surface-variant">
-                    Mock interviews for university admissions and visa officers to
-                    build confidence and fluency.
+                    Mock interviews for university admissions and visa officers.
                 </p>
             </div>
-            <!-- Service Card 3 -->
+
             <div
-                class="surface-card p-stack-md flex flex-col items-start gap-4">
+                class="surface-card p-stack-md flex flex-col items-start gap-4 js-reveal js-reveal--delay-3">
                 <div
                     class="w-12 h-12 bg-tertiary-container text-on-tertiary rounded-full flex items-center justify-center">
                     <span class="material-symbols-outlined" data-icon="psychology">psychology</span>
@@ -54,13 +53,12 @@
                     Counseling
                 </h3>
                 <p class="font-body-md text-on-surface-variant">
-                    Personalized academic path mapping based on your background,
-                    interests, and career goals.
+                    Personalized academic path mapping based on your background.
                 </p>
             </div>
-            <!-- Service Card 4 -->
+
             <div
-                class="surface-card p-stack-md flex flex-col items-start gap-4">
+                class="surface-card p-stack-md flex flex-col items-start gap-4 js-reveal js-reveal--delay-4">
                 <div
                     class="w-12 h-12 bg-primary-container/20 text-primary rounded-full flex items-center justify-center">
                     <span class="material-symbols-outlined" data-icon="description">description</span>
@@ -69,13 +67,13 @@
                     Documentation
                 </h3>
                 <p class="font-body-md text-on-surface-variant">
-                    Professional guidance on translating and verifying academic and
-                    financial documents for Japanese authorities.
+                    Professional guidance on translating and verifying academic
+                    documents.
                 </p>
             </div>
-            <!-- Service Card 5 -->
+
             <div
-                class="surface-card p-stack-md flex flex-col items-start gap-4">
+                class="surface-card p-stack-md flex flex-col items-start gap-4 js-reveal js-reveal--delay-5">
                 <div
                     class="w-12 h-12 bg-secondary-container/20 text-secondary rounded-full flex items-center justify-center">
                     <span
@@ -86,13 +84,12 @@
                     Student VISA
                 </h3>
                 <p class="font-body-md text-on-surface-variant">
-                    End-to-end support for COE application and visa processing with
-                    high success rates.
+                    End-to-end support for COE application and visa processing.
                 </p>
             </div>
-            <!-- Service Card 6 -->
+
             <div
-                class="surface-card p-stack-md flex flex-col items-start gap-4">
+                class="surface-card p-stack-md flex flex-col items-start gap-4 js-reveal js-reveal--delay-6">
                 <div
                     class="w-12 h-12 bg-tertiary-container/20 text-tertiary rounded-full flex items-center justify-center">
                     <span
@@ -103,8 +100,8 @@
                     Pre-departure
                 </h3>
                 <p class="font-body-md text-on-surface-variant">
-                    Cultural orientation, travel booking assistance, and
-                    accommodation arrangements in Japan.
+                    Cultural orientation, travel booking, and accommodation
+                    arrangements.
                 </p>
             </div>
         </div>
