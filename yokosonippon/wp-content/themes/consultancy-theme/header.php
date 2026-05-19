@@ -1,38 +1,47 @@
-<?php
-
-/**
- * The header for our theme
- */
-if (! defined('ABSPATH')) exit;
-?>
 <!doctype html>
-<html <?php language_attributes(); ?> class="light">
+<html <?php language_attributes(); ?> class="light scroll-smooth">
 
 <head>
     <meta charset="<?php bloginfo('charset'); ?>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <?php wp_head(); /* Crucial: WP hooks into this to inject scripts/styles */ ?>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <?php wp_head(); /* Essential for WP core and plugins */ ?>
 </head>
 
-<body <?php body_class('text-on-surface'); ?>>
+<body <?php body_class('bg-background text-on-background font-body-md antialiased min-h-screen min-h-[100dvh] flex flex-col'); ?>>
     <?php wp_body_open(); ?>
 
-    <!-- Top Navigation Bar -->
-    <header class="fixed top-0 w-full z-50 bg-surface/95 backdrop-blur-md shadow-sm border-b border-outline-variant">
-        <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-7xl mx-auto">
-            <div class="font-headline-lg text-2xl md:text-3xl font-bold text-primary">
-                <?php bloginfo('name'); ?>
-            </div>
-            <nav class="hidden md:flex gap-gutter items-center">
-                <a class="font-title-lg text-secondary border-b-2 border-secondary font-bold py-1" href="#home">Home</a>
-                <a class="font-title-lg text-on-surface-variant hover:text-primary transition-colors" href="#about">About</a>
-                <a class="font-title-lg text-on-surface-variant hover:text-primary transition-colors" href="#services">Services</a>
-                <a class="font-title-lg text-on-surface-variant hover:text-primary transition-colors" href="#japan-study">Japan Study</a>
-                <a class="font-title-lg text-on-surface-variant hover:text-primary transition-colors" href="#contact">Contact</a>
-            </nav>
-            <a href="#contact" class="bg-primary-container text-on-secondary px-6 py-3 rounded-full font-label-lg hover:bg-opacity-90 transition-all active:scale-95">
-                Consult Now
+    <div id="preloader" aria-hidden="true">
+        <img class="preloader-logo" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.png'); ?>" alt="Loading..." />
+        <div class="preloader-bar"></div>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="page-transition-overlay" aria-hidden="true"></div>
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 transition-all duration-300 border-b border-outline-variant/20" role="banner">
+        <div class="flex justify-between items-center w-[min(100%-clamp(2rem,5vw,8rem),80rem)] mx-auto py-3 sm:py-4">
+
+            <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-3 hover:opacity-80 transition-opacity shrink-0">
+                <img alt="<?php bloginfo('name'); ?> Logo" class="h-10 sm:h-12 w-auto object-contain" loading="eager" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.png'); ?>" />
             </a>
+
+            <nav class="hidden lg:flex items-center gap-6 xl:gap-8" aria-label="Main navigation">
+                <?php
+                wp_nav_menu(array(
+                    'theme_location' => 'primary',
+                    'container'      => false,
+                    'menu_class'     => 'flex gap-6',
+                    'fallback_cb'    => false,
+                ));
+                ?>
+            </nav>
+
+            <div class="flex items-center gap-2 sm:gap-4">
+                <a href="<?php echo esc_url(home_url('/contact')); ?>" class="hidden lg:inline-flex items-center justify-center font-label-lg text-label-lg font-medium rounded-full border border-primary text-primary hover:bg-primary/5 transition-colors px-5 py-2 xl:px-6 xl:py-2.5 btn-hover">Contact</a>
+                <a href="<?php echo esc_url(home_url('/apply')); ?>" class="hidden lg:inline-flex items-center justify-center font-label-lg text-label-lg font-medium px-5 py-2 xl:px-6 xl:py-2.5 rounded-full bg-[#002366] text-white hover:bg-primary/90 transition-colors shadow-sm btn-hover">Apply Now</a>
+                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-full hover:bg-surface-container-low transition-colors" aria-label="Open menu" aria-expanded="false">
+                    <span class="material-symbols-outlined text-on-surface">menu</span>
+                </button>
+            </div>
         </div>
     </header>

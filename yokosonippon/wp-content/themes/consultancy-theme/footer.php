@@ -1,33 +1,12 @@
-<?php
-
-/**
- * The footer for our theme
- */
-if (! defined('ABSPATH')) exit;
-?>
-<footer class="bg-surface-container-highest w-full rounded-t-[24px]">
-    <div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-stack-lg gap-gutter max-w-7xl mx-auto">
-        <div class="font-title-lg font-bold text-primary">
-            <?php bloginfo('name'); ?>
+<footer class="reveal bg-[#f8f9fa] border-t border-outline-variant/30 mt-auto" role="contentinfo">
+    <div class="w-[min(100%-clamp(2rem,5vw,8rem),80rem)] mx-auto py-12 sm:py-16 lg:py-20">
+        <div class="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-outline-variant/20 flex flex-col sm:flex-row justify-center sm:justify-between gap-4 items-center text-center sm:text-left">
+            <p class="font-body-md text-body-md text-on-surface-variant/70 text-[#424750]">© <span class="copyright-year"><?php echo date('Y'); ?></span> <?php bloginfo('name'); ?>. All rights reserved.</p>
         </div>
-        <div class="flex gap-6">
-            <a class="font-body-md text-on-surface-variant hover:text-primary transition-all" href="#">Privacy Policy</a>
-            <a class="font-body-md text-on-surface-variant hover:text-primary transition-all" href="#">Terms of Service</a>
-        </div>
-        <p class="font-body-md text-on-surface-variant text-center md:text-right">
-            &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All rights reserved.
-        </p>
     </div>
 </footer>
 
-<!-- Floating WhatsApp Button -->
-<a class="fab bg-[#25D366] text-white w-14 h-14 flex items-center justify-center" href="https://wa.me/97798XXXXXXXX" target="_blank">
-    <svg fill="currentColor" height="32" viewBox="0 0 16 16" width="32" xmlns="http://www.w3.org/2000/svg">
-        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.96L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93a7.898 7.898 0 0 0-2.327-5.607zM7.994 14.52a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path>
-    </svg>
-</a>
-
-<?php wp_footer(); /* Crucial: WP hooks into this for footer scripts */ ?>
+<?php wp_footer(); /* Essential for scripts to load */ ?>
 </body>
 
 </html>
