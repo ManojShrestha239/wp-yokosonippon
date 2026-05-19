@@ -64,3 +64,8 @@ function yokoso_nippon_setup()
     ));
 }
 add_action('after_setup_theme', 'yokoso_nippon_setup');
+
+/**
+ * Include Custom Nav Walker for Tailwind CSS
+ */
+require_once get_template_directory() . '/inc/class-yokoso-nav-walker.php';

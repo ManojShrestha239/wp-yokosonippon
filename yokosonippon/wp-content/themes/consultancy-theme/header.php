@@ -18,21 +18,54 @@
     <div class="page-transition-overlay" aria-hidden="true"></div>
     <canvas id="particles-canvas" aria-hidden="true"></canvas>
 
+    <div id="mobile-overlay" class="mobile-overlay fixed inset-0 bg-black/40 z-[60] backdrop-blur-sm"></div>
+
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-[min(280px,85vw)] h-full bg-white z-[70] shadow-2xl flex flex-col p-6 overflow-y-auto">
+        <div class="flex justify-between items-center mb-8">
+            <span class="font-title-lg text-primary font-bold">Menu</span>
+            <button id="mobile-menu-close" class="p-2 rounded-full hover:bg-surface-container-low transition-colors" aria-label="Close menu">
+                <span class="material-symbols-outlined text-on-surface">close</span>
+            </button>
+        </div>
+
+        <nav class="flex flex-col gap-2" aria-label="Mobile navigation">
+            <?php
+            if (has_nav_menu('mobile')) {
+                wp_nav_menu(array(
+                    'theme_location' => 'mobile',
+                    'container'      => false,
+                    'items_wrap'     => '%3$s', // Strips the <ul>
+                    'walker'         => new Yokoso_Tailwind_Nav_Walker(), // Uses our custom class
+                    'fallback_cb'    => false,
+                ));
+            }
+            ?>
+        </nav>
+
+        <div class="mt-auto pt-8 flex flex-col gap-3">
+            <a href="<?php echo esc_url(home_url('/contact')); ?>" class="btn-hover text-center font-label-lg text-label-lg font-medium rounded-full border border-primary text-primary px-6 py-2.5">Contact</a>
+            <a href="<?php echo esc_url(home_url('/apply')); ?>" class="btn-hover text-center font-label-lg text-label-lg font-medium px-6 py-2.5 rounded-full bg-primary text-white shadow-sm">Apply Now</a>
+        </div>
+    </div>
+
     <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 transition-all duration-300 border-b border-outline-variant/20" role="banner">
         <div class="flex justify-between items-center w-[min(100%-clamp(2rem,5vw,8rem),80rem)] mx-auto py-3 sm:py-4">
 
-            <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-3 hover:opacity-80 transition-opacity shrink-0">
+            <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-3 hover:opacity-80 transition-opacity shrink-0" aria-label="Yokoso Nippon Home">
                 <img alt="<?php bloginfo('name'); ?> Logo" class="h-10 sm:h-12 w-auto object-contain" loading="eager" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.png'); ?>" />
             </a>
 
             <nav class="hidden lg:flex items-center gap-6 xl:gap-8" aria-label="Main navigation">
                 <?php
-                wp_nav_menu(array(
-                    'theme_location' => 'primary',
-                    'container'      => false,
-                    'menu_class'     => 'flex gap-6',
-                    'fallback_cb'    => false,
-                ));
+                if (has_nav_menu('primary')) {
+                    wp_nav_menu(array(
+                        'theme_location' => 'primary',
+                        'container'      => false,
+                        'items_wrap'     => '%3$s', // Strips the <ul>
+                        'walker'         => new Yokoso_Tailwind_Nav_Walker(), // Uses our custom class
+                        'fallback_cb'    => false,
+                    ));
+                }
                 ?>
             </nav>
 
