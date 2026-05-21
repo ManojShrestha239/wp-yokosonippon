@@ -76,6 +76,65 @@ get_header();
         </div>
     </section>
 
+    <!-- Gallery Section -->
+    <section class="w-[min(100%-clamp(2rem,5vw,8rem),80rem)] mx-auto section-gap-sm bg-background">
+        <div class="text-center space-y-4 mb-8 sm:mb-12 reveal-blur">
+            <h2 class="font-headline-lg text-headline-lg text-primary font-semibold text-glow">
+                Moments of Success &amp; Campus Life
+            </h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto reveal-blur stagger-1">
+                Witness the vibrant journey of our students as they embrace life and
+                education in the heart of Japan.
+            </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <!-- Image 1 -->
+            <div
+                class="group relative overflow-hidden rounded-[24px] aspect-[4/3] shadow-sm reveal-scale cursor-pointer card-shimmer">
+                <img alt="Japanese Scenery"
+                    class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBj66ZDbrv07wEBYCeLgFGnQyOlTUNwfJoDGygN2GRmezcXTtYA-LO4dJm-Ze34cFbMXKrzWGIULMGtM8AfR3_jZDSqL4nqnfW7DZu6gsPxQ6NQsZYBKPuJvrqbO08eALR0MgTorLBVf7NfK5vqlxmDsnKsgKsrpw9JozGpX_rRr5V4x6KFnstaNDH-5A0_l1RyQx26bkpwSfE4ql6nm8bi1V4g1qz19xc2xSpaW_Oy9vKeTJaz45dzZyL9cCPvEOhEna8bO2SlUiI1" />
+            </div>
+            <!-- Image 2 -->
+            <div
+                class="group relative overflow-hidden rounded-[24px] aspect-[4/3] shadow-sm reveal-scale cursor-pointer card-shimmer">
+                <img alt="Student Life" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAezRkclIU43KTvSCYek2ta1JhhY5w9H_cflzIEpD8uQmh9rR-zdaEZEtZLz3R2Va-5zXcRO1KsTRD2ixQu-5lgq2L7dqy5KiAqJat-5Hws3axjuk3wgXHB-7P9e3LF5BpyNHIMNw9d_044e4rr5Vd0PfMf_-l29xCDCxS-Qar5WMQFxo7Be-a2fZRYzqEHXUgMZ5lpcXGhd_M6aNHgidoow0HGWpUjmM7DQIWNm6KhesPRmviPrxId02O_hvAhxqdfyLnHpBNB_xhC" />
+            </div>
+            <!-- Image 3 -->
+            <div
+                class="group relative overflow-hidden rounded-[24px] aspect-[4/3] shadow-sm reveal-scale cursor-pointer card-shimmer">
+                <img alt="Office Seminar" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBj66ZDbrv07wEBYCeLgFGnQyOlTUNwfJoDGygN2GRmezcXTtYA-LO4dJm-Ze34cFbMXKrzWGIULMGtM8AfR3_jZDSqL4nqnfW7DZu6gsPxQ6NQsZYBKPuJvrqbO08eALR0MgTorLBVf7NfK5vqlxmDsnKsgKsrpw9JozGpX_rRr5V4x6KFnstaNDH-5A0_l1RyQx26bkpwSfE4ql6nm8bi1V4g1qz19xc2xSpaW_Oy9vKeTJaz45dzZyL9cCPvEOhEna8bO2SlUiI1" />
+            </div>
+            <!-- Image 4 -->
+            <div
+                class="group relative overflow-hidden rounded-[24px] aspect-[4/3] shadow-sm reveal-scale cursor-pointer card-shimmer">
+                <img alt="Cultural Exchange"
+                    class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAezRkclIU43KTvSCYek2ta1JhhY5w9H_cflzIEpD8uQmh9rR-zdaEZEtZLz3R2Va-5zXcRO1KsTRD2ixQu-5lgq2L7dqy5KiAqJat-5Hws3axjuk3wgXHB-7P9e3LF5BpyNHIMNw9d_044e4rr5Vd0PfMf_-l29xCDCxS-Qar5WMQFxo7Be-a2fZRYzqEHXUgMZ5lpcXGhd_M6aNHgidoow0HGWpUjmM7DQIWNm6KhesPRmviPrxId02O_hvAhxqdfyLnHpBNB_xhC" />
+            </div>
+            <!-- Image 5 -->
+            <div
+                class="group relative overflow-hidden rounded-[24px] aspect-[4/3] shadow-sm reveal-scale cursor-pointer card-shimmer">
+                <img alt="Student Achievement"
+                    class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBj66ZDbrv07wEBYCeLgFGnQyOlTUNwfJoDGygN2GRmezcXTtYA-LO4dJm-Ze34cFbMXKrzWGIULMGtM8AfR3_jZDSqL4nqnfW7DZu6gsPxQ6NQsZYBKPuJvrqbO08eALR0MgTorLBVf7NfK5vqlxmDsnKsgKsrpw9JozGpX_rRr5V4x6KFnstaNDH-5A0_l1RyQx26bkpwSfE4ql6nm8bi1V4g1qz19xc2xSpaW_Oy9vKeTJaz45dzZyL9cCPvEOhEna8bO2SlUiI1" />
+            </div>
+            <!-- Image 6 -->
+            <div
+                class="group relative overflow-hidden rounded-[24px] aspect-[4/3] shadow-sm reveal-scale cursor-pointer card-shimmer">
+                <img alt="Tokyo Campus" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAezRkclIU43KTvSCYek2ta1JhhY5w9H_cflzIEpD8uQmh9rR-zdaEZEtZLz3R2Va-5zXcRO1KsTRD2ixQu-5lgq2L7dqy5KiAqJat-5Hws3axjuk3wgXHB-7P9e3LF5BpyNHIMNw9d_044e4rr5Vd0PfMf_-l29xCDCxS-Qar5WMQFxo7Be-a2fZRYzqEHXUgMZ5lpcXGhd_M6aNHgidoow0HGWpUjmM7DQIWNm6KhesPRmviPrxId02O_hvAhxqdfyLnHpBNB_xhC" />
+            </div>
+        </div>
+        <!-- <div class="mt-8 sm:mt-12 text-center reveal stagger-4">
+            <button
+                class="btn-hover btn-magnetic font-label-lg text-label-lg text-primary border border-primary px-8 py-3 rounded-full hover:bg-surface-container-low transition-all duration-300">
+                View Full Gallery
+            </button>
+        </div> -->
+    </section>
 </main>
 
 <?php
