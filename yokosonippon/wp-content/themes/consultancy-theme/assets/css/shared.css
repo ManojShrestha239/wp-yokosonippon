@@ -1030,6 +1030,20 @@ img.loaded {
     gap: clamp(1rem, 2.5vw, 1.5rem);
 }
 
+/* Prevent Contact Form 7 processing elements from throwing layout alignments out of bounds */
+.wpcf7 .wpcf7-form-control-wrap {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+}
+
+.wpcf7-response-output {
+    margin: 1.5rem 0 0 0 !important;
+    padding: 1rem !important;
+    border-radius: 12px !important;
+    font-size: 0.875rem !important;
+}
+
 /* ============================================
    REDUCED MOTION
    ============================================ */
