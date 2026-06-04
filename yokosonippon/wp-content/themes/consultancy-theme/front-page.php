@@ -152,29 +152,52 @@ get_header(); // This calls header.php
             <p class="font-body-lg text-body-lg text-on-surface-variant">Everything you need to know about starting your
                 journey.</p>
         </div>
+
+        <?php
+        $faqs = new WP_Query([
+            'post_type'      => 'commonquestion',
+            'posts_per_page' => 5,
+            'post_status'    => 'publish',
+
+            'meta_query' => [
+                [
+                    'key'     => 'show_on_homepage',
+                    'value'   => '1',
+                    'compare' => '='
+                ]
+            ],
+
+            'meta_key'  => 'display_order',
+            'orderby'   => 'meta_value_num',
+            'order'     => 'ASC'
+        ]);
+        ?>
+
         <div class="space-y-4">
-            <div
-                class="faq-item group bg-white rounded-2xl p-5 sm:p-6 cursor-pointer border border-outline-variant/40 hover:border-primary/20 hover:shadow-sm transition-all duration-300"
-                onclick="toggleFaq(this)">
-                <div class="flex justify-between items-center gap-4">
-                    <h4 class="font-title-lg text-primary"><?php echo esc_html($common_question_1) ?></h4>
-                    <span class="material-symbols-outlined text-primary arrow-icon shrink-0">expand_more</span>
+            <?php while ($faqs->have_posts()) : $faqs->the_post();
+            ?>
+                <div
+                    class="faq-item group bg-white rounded-2xl p-5 sm:p-6 cursor-pointer border border-outline-variant/40 hover:border-primary/20 hover:shadow-sm transition-all duration-300"
+                    onclick="toggleFaq(this)">
+
+                    <div class="flex justify-between items-center gap-4">
+                        <h4 class="font-title-lg text-primary">
+                            <?php the_title(); ?>
+                        </h4>
+
+                        <span class="material-symbols-outlined text-primary arrow-icon shrink-0">
+                            expand_more
+                        </span>
+                    </div>
+
+                    <div class="faq-content">
+                        <p class="font-body-md text-on-surface-variant">
+                            <?php echo wp_kses_post(get_field('answer')); ?>
+                        </p>
+                    </div>
                 </div>
-                <div class="faq-content">
-                    <p class="font-body-md text-on-surface-variant"><?php echo esc_html($common_answer_1) ?></p>
-                </div>
-            </div>
-            <div
-                class="faq-item group bg-white rounded-2xl p-5 sm:p-6 cursor-pointer border border-outline-variant/40 hover:border-primary/20 hover:shadow-sm transition-all duration-300"
-                onclick="toggleFaq(this)">
-                <div class="flex justify-between items-center gap-4">
-                    <h4 class="font-title-lg text-primary"><?php echo esc_html($common_question_2) ?></h4>
-                    <span class="material-symbols-outlined text-primary arrow-icon shrink-0">expand_more</span>
-                </div>
-                <div class="faq-content">
-                    <p class="font-body-md text-on-surface-variant"><?php echo esc_html($common_answer_2) ?></p>
-                </div>
-            </div>
+            <?php endwhile;
+            wp_reset_postdata(); ?>
         </div>
         <div class="text-center mt-8 reveal stagger-2">
             <a href="<?php echo esc_url(home_url('/contact')); ?>"
