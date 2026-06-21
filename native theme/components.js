@@ -106,7 +106,7 @@ function renderFooter() {
           <h4 class="font-label-lg text-label-lg font-bold text-primary mb-1 uppercase tracking-wider">Contact Us</h4>
           <div class="flex flex-col gap-3 font-body-md text-on-surface-variant">
             <div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-sm opacity-80">location_on</span><span>Khairahani-8, Parsa, Chitwan</span></div>
-            <div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-sm opacity-80">mail</span><a class="hover:text-primary transition-colors" href="mailto:nipponparsaedu@gmail.com">nipponparsaedu@gmail.com</a></div>
+            <div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-sm opacity-80">mail</span><a class="hover:text-primary transition-colors" href="mailto:yokosonipponedu@gmail.com">yokosonipponedu@gmail.com</a></div>
             <div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-sm opacity-80">smartphone</span><a href="tel:9749828725" class="hover:text-primary transition-colors">9749828725</a></div>
             <div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-sm opacity-80">call</span><a href="tel:056494410" class="hover:text-primary transition-colors">056494410</a></div>
           </div>

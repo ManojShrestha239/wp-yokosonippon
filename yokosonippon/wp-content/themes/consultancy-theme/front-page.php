@@ -188,7 +188,7 @@ get_header(); // This calls header.php
             </div>
         </div>
         <div class="text-center mt-8 reveal stagger-2">
-            <a href="contact_faq_modern.html"
+            <a href="<?php echo esc_url(home_url('/contact')); ?>"
                 class="inline-flex items-center text-primary font-label-lg text-label-lg group btn-hover border border-primary rounded-full px-6 py-2.5">
                 View All FAQs
                 <span

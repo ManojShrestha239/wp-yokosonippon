@@ -107,14 +107,10 @@ get_header();
                     Send us a Message
                 </h2>
                 <p class="font-body-md text-body-md text-on-surface-variant mb-stack-md">
-                    ©<?php date('Y') ?>Yokoso Nippon Educational Consultancy Pvt. Ltd. Empowering Nepali Students for Excellence in Japan.
+                    ©2026 Yokoso Nippon Educational Consultancy Pvt. Ltd. Empowering Nepali Students for Excellence in Japan.
                 </p>
 
-                <!-- 
-      ENTERPRISE STANDARD: 
-      We delegate form rendering to the CF7 engine via the master shortcode.
-      Do not paste the raw field HTML here. Ensure you include the 'echo'.
-    -->
+
                 <div class="flex flex-col gap-6">
                     <?php echo do_shortcode('[contact-form-7 id="16ae1f3" title="Send us a Message"]'); ?>
                 </div>
@@ -166,7 +162,7 @@ get_header();
                         </div>
                         <div>
                             <h3 class="font-label-lg text-label-lg font-bold text-on-surface">Email</h3>
-                            <p class="font-body-md text-body-md text-on-surface-variant">nipponparsaedu@gmail.com</p>
+                            <p class="font-body-md text-body-md text-on-surface-variant">yokosonipponedu@gmail.com</p>
                         </div>
                     </div>
                 </div>

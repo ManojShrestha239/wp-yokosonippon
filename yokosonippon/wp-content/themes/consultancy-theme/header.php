@@ -71,7 +71,7 @@
 
             <div class="flex items-center gap-2 sm:gap-4">
                 <a href="<?php echo esc_url(home_url('/contact')); ?>" class="hidden lg:inline-flex items-center justify-center font-label-lg text-label-lg font-medium rounded-full border border-primary text-primary hover:bg-primary/5 transition-colors px-5 py-2 xl:px-6 xl:py-2.5 btn-hover">Contact</a>
-                <a href="<?php echo esc_url(home_url('/apply')); ?>" class="hidden lg:inline-flex items-center justify-center font-label-lg text-label-lg font-medium px-5 py-2 xl:px-6 xl:py-2.5 rounded-full bg-[#002366] text-white hover:bg-primary/90 transition-colors shadow-sm btn-hover">Apply Now</a>
+                <a href="<?php echo esc_url(home_url('/contact')); ?>" class="hidden lg:inline-flex items-center justify-center font-label-lg text-label-lg font-medium px-5 py-2 xl:px-6 xl:py-2.5 rounded-full bg-[#002366] text-white hover:bg-primary/90 transition-colors shadow-sm btn-hover">Apply Now</a>
                 <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-full hover:bg-surface-container-low transition-colors" aria-label="Open menu" aria-expanded="false">
                     <span class="material-symbols-outlined text-on-surface">menu</span>
                 </button>

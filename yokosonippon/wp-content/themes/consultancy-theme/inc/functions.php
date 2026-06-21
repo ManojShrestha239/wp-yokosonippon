@@ -38,3 +38,20 @@ add_action('after_setup_theme', 'consultancy_theme_setup');
 // Require modular logic files (to be built in later milestones)
 // require_once get_template_directory() . '/inc/cpt-registration.php';
 // require_once get_template_directory() . '/inc/ajax-forms.php';
+
+
+/**
+ * Force Rank Math to parse Advanced Custom Fields strings for content density metrics.
+ */
+add_filter('rank_math/v2/analyze_content_fields', function ($fields) {
+    $fields[] = 'hero_title';
+    $fields[] = 'content';
+    $fields[] = 'core_services_1_description';
+    $fields[] = 'core_services_2_description';
+    $fields[] = 'core_services_3_description';
+    $fields[] = 'core_services_4_description';
+    $fields[] = 'common_answer_1';
+    $fields[] = 'common_answer_2';
+
+    return $fields;
+});

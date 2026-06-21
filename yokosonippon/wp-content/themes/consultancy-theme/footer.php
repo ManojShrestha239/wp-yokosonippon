@@ -50,7 +50,7 @@
                         </div>
                         <div>
                             <h3 class="font-label-lg text-label-lg font-bold text-on-surface">Email</h3>
-                            <p class="font-body-md text-body-md text-on-surface-variant">nipponparsaedu@gmail.com</p>
+                            <p class="font-body-md text-body-md text-on-surface-variant">yokosonipponedu@gmail.com</p>
                         </div>
                     </div>
                 </div>
