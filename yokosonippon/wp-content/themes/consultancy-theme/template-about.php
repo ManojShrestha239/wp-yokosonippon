@@ -9,24 +9,58 @@ get_header();
 ?>
 
 <main class="flex-grow">
+    <?php
+    // 1. Fetch the data from the database
+    $page_data                  = get_fields();
+    // $hero                       = get_field('hero_section');
+    // $education                  = get_field('educational_adventure');
+    $hero                       = $page_data['hero_section'] ?? [];
+    $story                      = $page_data['story'] ?? [];
+    //Hero Section
+    $hero_image                 = $hero['image'] ?? '';
+    $hero_title                 = $hero['title'] ?? '';
+    $hero_content               = $hero['content'] ?? '';
+    //EDU Section
+    $edu_title                  = $education['title'] ?? '';
+    $edu_content                = $education['content'] ?? '';
+    $edu_button_title           = $education['button_title'] ?? '';
+
+    // Fallback image in case the client forgets to upload one
+    if (! $hero_image) {
+        $hero_image = get_template_directory_uri() . '/assets/img/default-hero.jpg';
+    }
+    ?>
     <section class="w-[min(100%-clamp(2rem,5vw,8rem),80rem)] mx-auto section-gap wave-divider">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div class="space-y-5 sm:space-y-6 reveal-blur pr-0 lg:pr-8 xl:pr-12">
-                <div class="inline-flex items-center gap-2 bg-secondary-fixed text-on-secondary-fixed-variant px-4 py-2 rounded-full font-label-sm text-label-sm animate-pulse-soft w-max reveal-blur stagger-1">
-                    <span class="material-symbols-outlined text-[16px]">school</span>
-                    Empowering Nepali Students
+
+                <?php if (!empty($hero_badge)): ?>
+                    <div class="inline-flex items-center gap-2 bg-secondary-fixed text-on-secondary-fixed-variant px-4 py-2 rounded-full font-label-sm text-label-sm animate-pulse-soft w-max reveal-blur stagger-1">
+                        <span class="material-symbols-outlined text-[16px]">school</span>
+                        <?php echo esc_html($hero_badge); ?>
+                    </div>
+                <?php endif; ?>
+
+
+                <?php if (!empty($hero_title)): ?>
+                    <h1 class="font-display-lg text-display-lg text-on-surface leading-tight font-bold text-shimmer reveal-blur stagger-2">
+                        <?php echo esc_html($hero_title); ?>
+                    </h1>
+                <?php endif; ?>
+
+                <?php if (!empty($hero_content)): ?>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl reveal-blur stagger-3">
+                        <?php echo esc_html($hero_content); ?>
+                    </p>
+                <?php endif; ?>
+            </div>
+
+            <?php if (!empty($hero_image)): ?>
+                <div class="relative aspect-[4/3] lg:aspect-auto lg:h-[min(500px,60vh)] rounded-[24px] overflow-hidden shadow-md group reveal-scale stagger-3 mt-6 lg:mt-0" data-parallax="0.2">
+                    <img alt="<?php echo esc_html($hero_title) ?>" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="<?php echo esc_url($hero_image); ?>" />
+                    <div class="absolute inset-0 bg-gradient-to-tr from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
-                <h1 class="font-display-lg text-display-lg text-on-surface leading-tight font-bold text-shimmer reveal-blur stagger-2">
-                    Guiding Your Journey to Excellence in Japan.
-                </h1>
-                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl reveal-blur stagger-3">
-                    At Yokoso Nippon Educational Consultancy Pvt. Ltd., we bridge the gap between ambition and achievement, providing comprehensive consultancy services to help you navigate your educational path in Japan.
-                </p>
-            </div>
-            <div class="relative aspect-[4/3] lg:aspect-auto lg:h-[min(500px,60vh)] rounded-[24px] overflow-hidden shadow-md group reveal-scale stagger-3 mt-6 lg:mt-0" data-parallax="0.2">
-                <img alt="Japanese landscape" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/about-hero.jpg" />
-                <div class="absolute inset-0 bg-gradient-to-tr from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            </div>
+            <?php endif; ?>
         </div>
     </section>
 
@@ -64,7 +98,7 @@ get_header();
                 </div>
 
                 <div class="md:col-span-2 bg-surface rounded-[24px] overflow-hidden shadow-sm relative min-h-[250px] sm:min-h-[300px] reveal-scale stagger-4 group" data-parallax="0.15">
-                    <img alt="Students studying" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/students.jpg" />
+                    <img alt="Students studying" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAezRkclIU43KTvSCYek2ta1JhhY5w9H_cflzIEpD8uQmh9rR-zdaEZEtZLz3R2Va-5zXcRO1KsTRD2ixQu-5lgq2L7dqy5KiAqJat-5Hws3axjuk3wgXHB-7P9e3LF5BpyNHIMNw9d_044e4rr5Vd0PfMf_-l29xCDCxS-Qar5WMQFxo7Be-a2fZRYzqEHXUgMZ5lpcXGhd_M6aNHgidoow0HGWpUjmM7DQIWNm6KhesPRmviPrxId02O_hvAhxqdfyLnHpBNB_xhC" />
                     <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-6 sm:p-8 lg:p-10 transition-opacity duration-500">
                         <h3 class="font-title-lg text-title-lg text-white font-medium">Shaping Futures</h3>
                         <p class="font-body-md text-body-md text-white/90 mt-2 max-w-lg">
@@ -77,64 +111,10 @@ get_header();
     </section>
 
     <!-- Gallery Section -->
-    <section class="w-[min(100%-clamp(2rem,5vw,8rem),80rem)] mx-auto section-gap-sm bg-background">
-        <div class="text-center space-y-4 mb-8 sm:mb-12 reveal-blur">
-            <h2 class="font-headline-lg text-headline-lg text-primary font-semibold text-glow">
-                Moments of Success &amp; Campus Life
-            </h2>
-            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto reveal-blur stagger-1">
-                Witness the vibrant journey of our students as they embrace life and
-                education in the heart of Japan.
-            </p>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            <!-- Image 1 -->
-            <div
-                class="group relative overflow-hidden rounded-[24px] aspect-[4/3] shadow-sm reveal-scale cursor-pointer card-shimmer">
-                <img alt="Japanese Scenery"
-                    class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBj66ZDbrv07wEBYCeLgFGnQyOlTUNwfJoDGygN2GRmezcXTtYA-LO4dJm-Ze34cFbMXKrzWGIULMGtM8AfR3_jZDSqL4nqnfW7DZu6gsPxQ6NQsZYBKPuJvrqbO08eALR0MgTorLBVf7NfK5vqlxmDsnKsgKsrpw9JozGpX_rRr5V4x6KFnstaNDH-5A0_l1RyQx26bkpwSfE4ql6nm8bi1V4g1qz19xc2xSpaW_Oy9vKeTJaz45dzZyL9cCPvEOhEna8bO2SlUiI1" />
-            </div>
-            <!-- Image 2 -->
-            <div
-                class="group relative overflow-hidden rounded-[24px] aspect-[4/3] shadow-sm reveal-scale cursor-pointer card-shimmer">
-                <img alt="Student Life" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAezRkclIU43KTvSCYek2ta1JhhY5w9H_cflzIEpD8uQmh9rR-zdaEZEtZLz3R2Va-5zXcRO1KsTRD2ixQu-5lgq2L7dqy5KiAqJat-5Hws3axjuk3wgXHB-7P9e3LF5BpyNHIMNw9d_044e4rr5Vd0PfMf_-l29xCDCxS-Qar5WMQFxo7Be-a2fZRYzqEHXUgMZ5lpcXGhd_M6aNHgidoow0HGWpUjmM7DQIWNm6KhesPRmviPrxId02O_hvAhxqdfyLnHpBNB_xhC" />
-            </div>
-            <!-- Image 3 -->
-            <div
-                class="group relative overflow-hidden rounded-[24px] aspect-[4/3] shadow-sm reveal-scale cursor-pointer card-shimmer">
-                <img alt="Office Seminar" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBj66ZDbrv07wEBYCeLgFGnQyOlTUNwfJoDGygN2GRmezcXTtYA-LO4dJm-Ze34cFbMXKrzWGIULMGtM8AfR3_jZDSqL4nqnfW7DZu6gsPxQ6NQsZYBKPuJvrqbO08eALR0MgTorLBVf7NfK5vqlxmDsnKsgKsrpw9JozGpX_rRr5V4x6KFnstaNDH-5A0_l1RyQx26bkpwSfE4ql6nm8bi1V4g1qz19xc2xSpaW_Oy9vKeTJaz45dzZyL9cCPvEOhEna8bO2SlUiI1" />
-            </div>
-            <!-- Image 4 -->
-            <div
-                class="group relative overflow-hidden rounded-[24px] aspect-[4/3] shadow-sm reveal-scale cursor-pointer card-shimmer">
-                <img alt="Cultural Exchange"
-                    class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAezRkclIU43KTvSCYek2ta1JhhY5w9H_cflzIEpD8uQmh9rR-zdaEZEtZLz3R2Va-5zXcRO1KsTRD2ixQu-5lgq2L7dqy5KiAqJat-5Hws3axjuk3wgXHB-7P9e3LF5BpyNHIMNw9d_044e4rr5Vd0PfMf_-l29xCDCxS-Qar5WMQFxo7Be-a2fZRYzqEHXUgMZ5lpcXGhd_M6aNHgidoow0HGWpUjmM7DQIWNm6KhesPRmviPrxId02O_hvAhxqdfyLnHpBNB_xhC" />
-            </div>
-            <!-- Image 5 -->
-            <div
-                class="group relative overflow-hidden rounded-[24px] aspect-[4/3] shadow-sm reveal-scale cursor-pointer card-shimmer">
-                <img alt="Student Achievement"
-                    class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBj66ZDbrv07wEBYCeLgFGnQyOlTUNwfJoDGygN2GRmezcXTtYA-LO4dJm-Ze34cFbMXKrzWGIULMGtM8AfR3_jZDSqL4nqnfW7DZu6gsPxQ6NQsZYBKPuJvrqbO08eALR0MgTorLBVf7NfK5vqlxmDsnKsgKsrpw9JozGpX_rRr5V4x6KFnstaNDH-5A0_l1RyQx26bkpwSfE4ql6nm8bi1V4g1qz19xc2xSpaW_Oy9vKeTJaz45dzZyL9cCPvEOhEna8bO2SlUiI1" />
-            </div>
-            <!-- Image 6 -->
-            <div
-                class="group relative overflow-hidden rounded-[24px] aspect-[4/3] shadow-sm reveal-scale cursor-pointer card-shimmer">
-                <img alt="Tokyo Campus" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAezRkclIU43KTvSCYek2ta1JhhY5w9H_cflzIEpD8uQmh9rR-zdaEZEtZLz3R2Va-5zXcRO1KsTRD2ixQu-5lgq2L7dqy5KiAqJat-5Hws3axjuk3wgXHB-7P9e3LF5BpyNHIMNw9d_044e4rr5Vd0PfMf_-l29xCDCxS-Qar5WMQFxo7Be-a2fZRYzqEHXUgMZ5lpcXGhd_M6aNHgidoow0HGWpUjmM7DQIWNm6KhesPRmviPrxId02O_hvAhxqdfyLnHpBNB_xhC" />
-            </div>
-        </div>
-        <!-- <div class="mt-8 sm:mt-12 text-center reveal stagger-4">
-            <button
-                class="btn-hover btn-magnetic font-label-lg text-label-lg text-primary border border-primary px-8 py-3 rounded-full hover:bg-surface-container-low transition-all duration-300">
-                View Full Gallery
-            </button>
-        </div> -->
-    </section>
+    <!-- [custom_native_gallery id="142"] -->
+    <!-- <?php echo do_shortcode('[custom_native_gallery id="122"]'); ?> -->
+    <?php echo do_shortcode('[custom_native_gallery name="success-story"]'); ?>
+
 </main>
 
 <?php

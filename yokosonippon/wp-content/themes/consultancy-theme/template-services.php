@@ -10,16 +10,35 @@ get_header();
 
 <main
     class="flex-grow w-[min(100%-clamp(2rem,5vw,8rem),80rem)] mx-auto flex flex-col gap-[clamp(2rem,5vw,3rem)] py-8 sm:py-12 lg:py-16">
+    <?php
+    // 1. Fetch the data from the database
+    $page_data                  = get_fields();
+    // $hero                       = get_field('hero_section');
+    // $education                  = get_field('educational_adventure');
+    $hero                       = $page_data['hero_section'] ?? [];
+    $education                  = $page_data['educational_adventure'] ?? [];
+    //Hero Section
+    $hero_title                 = $hero['title'] ?? '';
+    $hero_content               = $hero['content'] ?? '';
+    //EDU Section
+    $edu_title                  = $education['title'] ?? '';
+    $edu_content                = $education['content'] ?? '';
+    $edu_button_title           = $education['button_title'] ?? '';
+    ?>
     <!-- Hero Section -->
     <section class="text-center max-w-3xl mx-auto pt-4 sm:pt-8 reveal">
-        <h1 class="font-display-lg text-display-lg font-bold text-primary mb-4 sm:mb-6 reveal-blur text-shimmer">
-            Comprehensive Guidance for Your Journey
-        </h1>
-        <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed reveal-blur stagger-1">
-            From mastering the language to settling into your new dorm, our
-            expertly crafted services ensure every step of your transition to
-            studying in Japan is seamless and successful.
-        </p>
+        <?php if (!empty($hero_title)): ?>
+            <h1 class="font-display-lg text-display-lg font-bold text-primary mb-4 sm:mb-6 reveal-blur text-shimmer">
+                <?php echo esc_html($hero_title); ?>
+            </h1>
+        <?php endif; ?>
+
+        <?php if (!empty($hero_content)): ?>
+            <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed reveal-blur stagger-1">
+                <?php echo esc_html($hero_content); ?>
+            </p>
+        <?php endif; ?>
+
     </section>
     <!-- Services Grid -->
     <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6" id="services-grid">
@@ -118,19 +137,28 @@ get_header();
         <div class="absolute inset-0 bg-primary/90 transition-colors duration-700"></div>
         <div
             class="relative z-10 px-6 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20 text-center flex flex-col items-center justify-center h-full">
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-on-primary mb-4 sm:mb-6 reveal-blur text-glow max-w-3xl">
-                Ready to Begin Your Educational Adventure?
-            </h2>
-            <p class="text-base sm:text-lg text-primary-fixed-dim max-w-2xl mb-8 sm:mb-10 reveal-blur stagger-1">
-                Let our experienced consultants architect your pathway to Japan's
-                top universities. The first consultation is entirely free.
-            </p>
-            <a href="contact_faq_modern.html"
-                class="group font-bold bg-surface-container-lowest text-primary rounded-full px-6 sm:px-8 py-3 sm:py-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 flex items-center gap-2 btn-magnetic btn-hover reveal stagger-2">
-                Start Your Application
-                <span
-                    class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
-            </a>
+            <? if (!empty($edu_title)): ?>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-on-primary mb-4 sm:mb-6 reveal-blur text-glow max-w-3xl">
+                    <?php echo esc_html($edu_title); ?>
+                </h2>
+            <?php endif; ?>
+
+            <? if (!empty($edu_content)): ?>
+                <p class="text-base sm:text-lg text-primary-fixed-dim max-w-2xl mb-8 sm:mb-10 reveal-blur stagger-1">
+                    <?php echo esc_html($edu_content); ?>
+                </p>
+            <?php endif; ?>
+
+            <? if (!empty($edu_button_title)): ?>
+
+                <a href="<?php echo esc_url(site_url('/contact')); ?>"
+                    class="group font-bold bg-surface-container-lowest text-primary rounded-full px-6 sm:px-8 py-3 sm:py-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 flex items-center gap-2 btn-magnetic btn-hover reveal stagger-2">
+                    <?php echo esc_html($edu_button_title); ?>
+                    <span
+                        class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
+            <?php endif; ?>
+
         </div>
     </section>
 </main>

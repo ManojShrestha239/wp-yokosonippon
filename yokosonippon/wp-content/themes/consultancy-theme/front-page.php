@@ -11,9 +11,9 @@ get_header(); // This calls header.php
     <!-- Hero Section -->
     <?php
     // 1. Fetch the data from the database
-    $hero_badge                  = get_field('hero_badge');
+    $hero_image                  = get_field('hero_image');
     $hero_title                  = get_field('hero_title');
-    $hero_description            = get_field('hero_description');
+    $hero_description            = get_field('content');
     $hero_bg_url                 = get_field('hero_background');
     $core_services_1_title       = get_field('core_services_1_title');
     $core_services_1_description = get_field('core_services_1_description');
@@ -29,47 +29,50 @@ get_header(); // This calls header.php
     $common_answer_2             = get_field('common_answer_2');
 
     // Fallback image in case the client forgets to upload one
-    if (! $hero_bg_url) {
-        $hero_bg_url = get_template_directory_uri() . '/assets/img/default-hero.jpg';
+    if (! $hero_image) {
+        $hero_image = get_template_directory_uri() . '/assets/img/default-hero.jpg';
     }
     ?>
+
+    <!-- echo get_sub_field('hero_image'); -->
+    <!-- echo get_field('hero_image'); -->
 
     <section class="reveal relative w-full min-h-[min(80vh,600px)] flex items-center justify-center overflow-hidden bg-surface-container-low wave-divider">
         <div class="absolute inset-0 z-0" data-parallax="0.3">
             <img alt="<?php echo esc_attr($hero_title); ?>"
                 class="w-full h-full object-cover object-center opacity-30 mix-blend-multiply scale-105"
                 loading="eager"
-                src="<?php echo esc_url($hero_bg_url); ?>" />
+                src="<?php echo esc_url($hero_image); ?>" />
         </div>
 
         <div class="relative z-10 w-[min(100%-clamp(2rem,5vw,8rem),80rem)] mx-auto text-center py-12 sm:py-16 md:py-20">
 
-            <?php if ($hero_badge) : ?>
+            <?php if (!empty($hero_badge)) : ?>
                 <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm mb-4 sm:mb-6 uppercase tracking-wider reveal-blur stagger-1">
                     <?php echo esc_html($hero_badge); ?>
                 </span>
             <?php endif; ?>
 
-            <?php if ($hero_title) : ?>
+            <?php if (!empty($hero_title)) : ?>
                 <h1 class="font-display-lg text-display-lg text-primary mb-4 sm:mb-6 max-w-4xl mx-auto reveal-blur stagger-2 text-shimmer">
                     <?php echo esc_html($hero_title); ?>
                 </h1>
             <?php endif; ?>
 
-            <?php if ($hero_description) : ?>
+            <?php if (!empty($hero_description)) : ?>
                 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-8 sm:mb-10 text-[#2f3033] reveal-blur stagger-3">
-                    <?php echo wp_kses_post($hero_description); // wp_kses_post allows safe HTML like <br> tags 
+                    <?php echo esc_html($hero_description); // esc_html allows safe HTML like <br> tags 
                     ?>
                 </p>
             <?php endif; ?>
 
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal stagger-4">
+            <!-- <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal stagger-4">
                 <a href="<?php echo esc_url(home_url('/contact')); ?>" class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-full bg-[#002366] text-white font-label-lg text-label-lg btn-hover btn-magnetic shadow-md text-center">Start Your Journey</a>
                 <a href="<?php echo esc_url(home_url('/study-hub')); ?>" class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-full border border-outline text-primary font-label-lg text-label-lg btn-hover btn-magnetic flex items-center justify-center gap-2 group glass">
                     <span class="material-symbols-outlined transition-transform duration-300 group-hover:rotate-12" style="font-variation-settings: 'FILL' 1">play_circle</span>
                     How It Works
                 </a>
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -88,8 +91,10 @@ get_header(); // This calls header.php
                     <span class="material-symbols-outlined text-2xl"
                         style="font-variation-settings: &quot;FILL&quot; 1">school</span>
                 </div>
-                <h3 class="font-title-lg text-xl sm:text-2xl text-primary mb-3 sm:mb-4 tilt-inner"><?php echo esc_html($core_services_1_title) ?></h3>
-                <p class="font-body-md text-body-lg text-[#2f3033] mb-6 sm:mb-8 leading-relaxed"><?php echo esc_html($core_services_1_description) ?></p>
+                <h3 class="font-title-lg text-xl sm:text-2xl text-primary mb-3 sm:mb-4 tilt-inner">University Admissions</h3>
+                <p class="font-body-md text-body-lg text-[#2f3033] mb-6 sm:mb-8 leading-relaxed">End-to-end assistance with university
+                    selection, application processing, and interview preparation to secure your spot in top Japanese
+                    institutions.</p>
                 <a class="inline-flex items-center text-primary font-label-lg text-label-lg group cursor-pointer"
                     href="our_service.html">
                     <span class="hover:underline">Learn more</span>
@@ -105,8 +110,9 @@ get_header(); // This calls header.php
                     <span class="material-symbols-outlined text-2xl"
                         style="font-variation-settings: &quot;FILL&quot; 1">translate</span>
                 </div>
-                <h3 class="font-title-lg text-xl sm:text-2xl text-primary mb-3 sm:mb-4 tilt-inner"><?php echo esc_html($core_services_2_title) ?></h3>
-                <p class="font-body-md text-body-md text-[#424750] leading-relaxed"><?php echo esc_html($core_services_2_description) ?></p>
+                <h3 class="font-title-lg text-xl sm:text-2xl text-primary mb-3 sm:mb-4 tilt-inner">Language Prep</h3>
+                <p class="font-body-md text-body-md text-[#424750] leading-relaxed">Intensive JLPT and NAT preparation courses
+                    tailored for rapid proficiency in the Japanese language.</p>
             </div>
             <!-- Visa Processing -->
             <div
@@ -116,8 +122,9 @@ get_header(); // This calls header.php
                     <span class="material-symbols-outlined text-2xl"
                         style="font-variation-settings: &quot;FILL&quot; 1">description</span>
                 </div>
-                <h3 class="font-title-lg text-xl sm:text-2xl text-primary mb-3 sm:mb-4 tilt-inner"><?php echo esc_html($core_services_3_title) ?></h3>
-                <p class="font-body-md text-body-md text-[#424750] leading-relaxed"><?php echo esc_html($core_services_3_description) ?></p>
+                <h3 class="font-title-lg text-xl sm:text-2xl text-primary mb-3 sm:mb-4 tilt-inner">Visa Processing</h3>
+                <p class="font-body-md text-body-md text-[#424750] leading-relaxed">Streamlined documentation support ensuring
+                    high visa success rates for students and researchers.</p>
             </div>
             <!-- Accommodation Support -->
             <div
@@ -132,8 +139,9 @@ get_header(); // This calls header.php
                         <span class="material-symbols-outlined text-2xl"
                             style="font-variation-settings: &quot;FILL&quot; 1">home_work</span>
                     </div>
-                    <h3 class="font-title-lg text-xl sm:text-2xl text-primary mb-3 sm:mb-4 tilt-inner"><?php echo esc_html($core_services_4_title) ?></h3>
-                    <p class="font-body-md text-body-md text-[#424750] mb-6 sm:mb-8 leading-relaxed"><?php echo esc_html($core_services_4_description) ?></p>
+                    <h3 class="font-title-lg text-xl sm:text-2xl text-primary mb-3 sm:mb-4 tilt-inner">Accommodation Support</h3>
+                    <p class="font-body-md text-body-md text-[#424750] mb-6 sm:mb-8 leading-relaxed">Secure, affordable housing options
+                        close to your campus before you even arrive in Japan.</p>
                     <a class="inline-flex items-center text-primary font-label-lg text-label-lg group cursor-pointer"
                         href="our_service.html">
                         <span class="hover:underline">View options</span>
@@ -152,55 +160,35 @@ get_header(); // This calls header.php
             <p class="font-body-lg text-body-lg text-on-surface-variant">Everything you need to know about starting your
                 journey.</p>
         </div>
-
-        <?php
-        $faqs = new WP_Query([
-            'post_type'      => 'commonquestion',
-            'posts_per_page' => 5,
-            'post_status'    => 'publish',
-
-            'meta_query' => [
-                [
-                    'key'     => 'show_on_homepage',
-                    'value'   => '1',
-                    'compare' => '='
-                ]
-            ],
-
-            'meta_key'  => 'display_order',
-            'orderby'   => 'meta_value_num',
-            'order'     => 'ASC'
-        ]);
-        ?>
-
         <div class="space-y-4">
-            <?php while ($faqs->have_posts()) : $faqs->the_post();
-            ?>
-                <div
-                    class="faq-item group bg-white rounded-2xl p-5 sm:p-6 cursor-pointer border border-outline-variant/40 hover:border-primary/20 hover:shadow-sm transition-all duration-300"
-                    onclick="toggleFaq(this)">
-
-                    <div class="flex justify-between items-center gap-4">
-                        <h4 class="font-title-lg text-primary">
-                            <?php the_title(); ?>
-                        </h4>
-
-                        <span class="material-symbols-outlined text-primary arrow-icon shrink-0">
-                            expand_more
-                        </span>
-                    </div>
-
-                    <div class="faq-content">
-                        <p class="font-body-md text-on-surface-variant">
-                            <?php echo wp_kses_post(get_field('answer')); ?>
-                        </p>
-                    </div>
+            <div
+                class="faq-item group bg-white rounded-2xl p-5 sm:p-6 cursor-pointer border border-outline-variant/40 hover:border-primary/20 hover:shadow-sm transition-all duration-300"
+                onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center gap-4">
+                    <h4 class="font-title-lg text-primary">What are the JLPT requirements for university?</h4>
+                    <span class="material-symbols-outlined text-primary arrow-icon shrink-0">expand_more</span>
                 </div>
-            <?php endwhile;
-            wp_reset_postdata(); ?>
+                <div class="faq-content">
+                    <p class="font-body-md text-on-surface-variant">Most universities require at least N2 proficiency for
+                        regular degree programs, though many English-taught programs accept candidates with N5 proficiency while
+                        providing Japanese language support.</p>
+                </div>
+            </div>
+            <div
+                class="faq-item group bg-white rounded-2xl p-5 sm:p-6 cursor-pointer border border-outline-variant/40 hover:border-primary/20 hover:shadow-sm transition-all duration-300"
+                onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center gap-4">
+                    <h4 class="font-title-lg text-primary">Can I work part-time while studying?</h4>
+                    <span class="material-symbols-outlined text-primary arrow-icon shrink-0">expand_more</span>
+                </div>
+                <div class="faq-content">
+                    <p class="font-body-md text-on-surface-variant">Yes, students are generally allowed to work up to 28 hours
+                        per week during school terms and up to 40 hours per week during long holidays with a valid permit.</p>
+                </div>
+            </div>
         </div>
         <div class="text-center mt-8 reveal stagger-2">
-            <a href="<?php echo esc_url(home_url('/contact')); ?>"
+            <a href="contact_faq_modern.html"
                 class="inline-flex items-center text-primary font-label-lg text-label-lg group btn-hover border border-primary rounded-full px-6 py-2.5">
                 View All FAQs
                 <span

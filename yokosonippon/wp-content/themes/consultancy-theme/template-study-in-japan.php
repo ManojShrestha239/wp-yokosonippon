@@ -9,23 +9,39 @@ get_header();
 ?>
 
 <main class="flex-grow">
+    <?php
+    // 1. Fetch the data from the database
+    $hero_image                  = get_field('image');
+    $hero_title                  = get_field('title');
+    $hero_description            = get_field('content');
+
+    // Fallback image in case the client forgets to upload one
+    if (! $hero_image) {
+        $hero_image = get_template_directory_uri() . '/assets/img/default-hero.jpg';
+    }
+    ?>
     <!-- Refined Hero Section -->
     <section class="w-[min(100%-clamp(2rem,5vw,8rem),80rem)] mx-auto py-8 sm:py-12 lg:py-20 wave-divider">
         <div class="relative rounded-3xl overflow-hidden bg-surface-container-low min-h-[300px] sm:min-h-[350px] lg:min-h-[400px] flex items-center">
             <img
-                alt="Cherry blossoms"
+                alt="<?php echo esc_attr($hero_title); ?>"
                 class="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-multiply"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY-ahJwFv7MblUtF1ck_t80lQ2WE2NWu12gPy68fbf_PjgBgXTyTOzn0pHEx02oTQK5yMWtKnLSN_wXZdMneAIOQgt9DEpSwlT1M0msaf9w8ZHDdoxpyWRlWoBZPpYpbC-ilWUdjRTF2V7FqmgxqHqsfyeBSrvMgkUUbrNDlmsHAvxnWZMFo3iYK1LAwKb6TGDzieUCTcHKd5pu7DGs5CpAHe-88j5ZAoBUkzk-GicujRI4TTeL90agYkyxy0-DJUCKb3fN64paabV"
+                src="<?php echo esc_url($hero_image); ?>"
                 data-parallax="0.3" />
             <div class="relative z-10 p-6 sm:p-8 lg:p-16 max-w-3xl">
-                <h1 class="font-display-lg text-display-lg text-primary mb-4 sm:mb-6 leading-tight reveal-blur text-shimmer">
-                    Unlock Your Future in Japan
-                </h1>
-                <p class="font-body-lg text-body-lg mb-6 sm:mb-8 text-on-surface-variant max-w-2xl reveal-blur stagger-1">
-                    Comprehensive guidance on universities, scholarships, and the visa
-                    process for international students seeking world-class education.
-                </p>
-                <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 reveal stagger-2">
+                <?php if (!empty($hero_title)) : ?>
+                    <h1 class="font-display-lg text-display-lg text-primary mb-4 sm:mb-6 leading-tight reveal-blur text-shimmer">
+                        <?php echo esc_html($hero_title); ?>
+                    </h1>
+                <?php endif; ?>
+
+                <?php if (!empty($hero_description)) : ?>
+                    <p class="font-body-lg text-body-lg mb-6 sm:mb-8 text-on-surface-variant max-w-2xl reveal-blur stagger-1">
+                        <?php echo esc_html($hero_description); ?>
+                    </p>
+                <?php endif; ?>
+
+                <!-- <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 reveal stagger-2">
                     <button
                         class="bg-primary text-on-primary font-label-lg text-label-lg rounded-full px-6 sm:px-8 py-3 hover:bg-primary/90 transition-colors btn-magnetic btn-hover text-center">
                         Find a Program
@@ -35,7 +51,7 @@ get_header();
                         <span>Download Guide</span>
                         <span class="material-symbols-outlined text-[18px]">download</span>
                     </button>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>

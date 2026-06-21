@@ -14,11 +14,45 @@
 
             <div class="lg:col-span-4 flex flex-col gap-4 lg:pt-16 reveal stagger-2">
                 <h4 class="font-label-lg text-label-lg font-bold text-primary mb-1 uppercase tracking-wider">Contact Us</h4>
-                <div class="flex flex-col gap-3 font-body-md text-on-surface-variant">
-                    <div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-sm opacity-80">location_on</span><span>Khairahani-8, Parsa, Chitwan</span></div>
-                    <div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-sm opacity-80">mail</span><a class="hover:text-primary transition-colors" href="mailto:nipponparsaedu@gmail.com">nipponparsaedu@gmail.com</a></div>
-                    <div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-sm opacity-80">smartphone</span><a href="tel:9749828725" class="hover:text-primary transition-colors">+977 9749828725</a></div>
-                    <div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-sm opacity-80">call</span><a href="tel:056494410" class="hover:text-primary transition-colors">056494410</a></div>
+                <div class="flex flex-col gap-stack-sm">
+                    <div class="flex items-start gap-4 hover:translate-x-2 transition-transform duration-300 group">
+                        <div class="w-10 h-10 rounded-full bg-surface flex items-center justify-center shrink-0 shadow-sm group-hover:bg-primary group-hover:text-on-primary transition-all">
+                            <span class="material-symbols-outlined text-[20px]">location_on</span>
+                        </div>
+                        <div>
+                            <h3 class="font-label-lg text-label-lg font-bold text-on-surface">Address</h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant">
+                                Khairahani-8, Parsa<br />Chitwan, Nepal
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 hover:translate-x-2 transition-transform duration-300 group">
+                        <div class="w-10 h-10 rounded-full bg-surface flex items-center justify-center shrink-0 shadow-sm group-hover:bg-primary group-hover:text-on-primary transition-all">
+                            <span class="material-symbols-outlined text-[20px]">call</span>
+                        </div>
+                        <div>
+                            <h3 class="font-label-lg text-label-lg font-bold text-on-surface">Phone</h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant">056494410</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 hover:translate-x-2 transition-transform duration-300 group">
+                        <div class="w-10 h-10 rounded-full bg-surface flex items-center justify-center shrink-0 shadow-sm group-hover:bg-primary group-hover:text-on-primary transition-all">
+                            <span class="material-symbols-outlined text-[20px]">forum</span>
+                        </div>
+                        <div>
+                            <h3 class="font-label-lg text-label-lg font-bold text-on-surface">WhatsApp / Viber</h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant">+977 9749828725</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 hover:translate-x-2 transition-transform duration-300 group">
+                        <div class="w-10 h-10 rounded-full bg-surface flex items-center justify-center shrink-0 shadow-sm group-hover:bg-primary group-hover:text-on-primary transition-all">
+                            <span class="material-symbols-outlined text-[20px]">mail</span>
+                        </div>
+                        <div>
+                            <h3 class="font-label-lg text-label-lg font-bold text-on-surface">Email</h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant">nipponparsaedu@gmail.com</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 

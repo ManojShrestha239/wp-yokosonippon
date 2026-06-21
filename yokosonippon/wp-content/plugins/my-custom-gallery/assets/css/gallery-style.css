@@ -1,0 +1,36 @@
+/* Optimized Modern CSS Grid Architecture */
+.enterprise-acf-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+    width: 100%;
+}
+
+.gallery-grid-item {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-grid-item:hover {
+    transform: translateY(-4px);
+}
+
+.gallery-grid-item-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-item-caption {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+    color: #4a5568;
+    text-align: center;
+    border-top: 1px solid #edf2f7;
+}

@@ -8,16 +8,28 @@ get_header();
 ?>
 
 <main class="flex-grow flex flex-col pb-stack-lg gap-8 sm:gap-12">
+    <?php
+    // 1. Fetch the data from the database
+    $page_data                  = get_fields();
+    $hero_title                 = $page_data['title'] ?? '';
+    $hero_content               = $page_data['content'] ?? '';
+    $location                   = $page_data['location'] ?? '';
+    ?>
     <!-- Hero Section -->
     <section class="w-[min(100%-clamp(2rem,5vw,8rem),80rem)] mx-auto pt-8 sm:pt-12 lg:pt-16 pb-4 sm:pb-8 reveal active">
         <div class="flex flex-col items-center text-center max-w-3xl mx-auto gap-stack-md">
-            <h1 class="font-display-lg text-display-lg text-primary font-bold reveal-blur text-shimmer">
-                Get in Touch
-            </h1>
-            <p class="font-body-lg text-body-lg text-on-surface-variant reveal-blur stagger-1">
-                Your transformative journey to studying in Japan begins with a
-                single conversation. Reach out to our expert counselors today.
-            </p>
+
+            <?php if (!empty($hero_title)): ?>
+                <h1 class="font-display-lg text-display-lg text-primary font-bold reveal-blur text-shimmer">
+                    <?php echo esc_html($hero_title); ?>
+                </h1>
+            <?php endif; ?>
+
+            <?php if (!empty($hero_content)): ?>
+                <p class="font-body-lg text-body-lg text-on-surface-variant reveal-blur stagger-1">
+                    <?php echo esc_html($hero_content); ?>
+                </p>
+            <?php endif; ?>
         </div>
     </section>
 
@@ -95,7 +107,7 @@ get_header();
                     Send us a Message
                 </h2>
                 <p class="font-body-md text-body-md text-on-surface-variant mb-stack-md">
-                    © 2024 Yokoso Nippon Educational Consultancy Pvt. Ltd. Empowering Nepali Students for Excellence in Japan.
+                    ©<?php date('Y') ?>Yokoso Nippon Educational Consultancy Pvt. Ltd. Empowering Nepali Students for Excellence in Japan.
                 </p>
 
                 <!-- 
@@ -161,7 +173,20 @@ get_header();
             </div>
             <!-- Map Placeholder -->
             <div class="relative min-h-[250px] sm:min-h-[300px] lg:min-h-full bg-surface-dim overflow-hidden group">
-                <img alt="Map of Chitwan location" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDE6uvYn3uuHJPfHFellqrvm1veF2mfFiG42ix7CCZP_MbBGqbyJW0xLA3wlIgeROxgJo1q4nqFCgnqP4Mom6uBfPuhx4hUS7yVktkeabNMTReziUjejLD_Z5MbEN_fAGgXO_kUp3BPPByrlAeBCffzdd8ywi6cIZfQmEFryNjziGLqwWl0LAiwjr2q00rtvwzCW1per6l3RwCbsgN5MajebNjWEkQACW7JRHrF7yXni0oceffD850Dnf-N90gd2mbB5nh9VXGNAhT" />
+                <?php if (!empty($location)): ?>
+                    <iframe src="<?php echo esc_html($location); ?>"
+                        width="100%"
+                        height="450"
+                        style="border:0;"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <?php else: ?>
+                    <div class="relative min-h-[250px] sm:min-h-[300px] lg:min-h-full bg-surface-dim overflow-hidden group">
+                        <img alt="Map of Chitwan location" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDE6uvYn3uuHJPfHFellqrvm1veF2mfFiG42ix7CCZP_MbBGqbyJW0xLA3wlIgeROxgJo1q4nqFCgnqP4Mom6uBfPuhx4hUS7yVktkeabNMTReziUjejLD_Z5MbEN_fAGgXO_kUp3BPPByrlAeBCffzdd8ywi6cIZfQmEFryNjziGLqwWl0LAiwjr2q00rtvwzCW1per6l3RwCbsgN5MajebNjWEkQACW7JRHrF7yXni0oceffD850Dnf-N90gd2mbB5nh9VXGNAhT" />
+                        <div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                    </div>
+                <?php endif; ?>
+                <!-- Hover overlay (same as your image design) -->
                 <div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
             </div>
         </div>
